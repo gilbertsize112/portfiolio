@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Gilbert Favour James — Full Stack Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -43,7 +43,11 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+/* Smooth scrolling on iOS */
+body{-webkit-overflow-scrolling:touch;}
+/* Prevent tap highlight flash on mobile */
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 body{font-family:var(--fs);background:var(--bg);color:var(--w);overflow-x:hidden;line-height:1.6;cursor:none;}
 a{text-decoration:none;color:inherit;}
 img{display:block;max-width:100%;}
@@ -592,31 +596,116 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
 .sk-panel.active{display:block;}
 
 /* ──────────────────────────────
-   RESPONSIVE
+   RESPONSIVE — TABLET 1100px
 ────────────────────────────── */
 @media(max-width:1100px){
-  .hero-layout{grid-template-columns:1fr;gap:56px;}
-  .hero-right{max-width:440px;}
+  .hero-layout{grid-template-columns:1fr;gap:48px;}
+  .hero-right{max-width:480px;margin:0 auto;}
   .ch1,.ch2,.ch3{display:none;}
-  .about-grid{grid-template-columns:1fr;max-width:560px;}
+  .about-grid{grid-template-columns:1fr;}
   .skills-grid{grid-template-columns:repeat(2,1fr);}
   .contact-grid{grid-template-columns:1fr;}
+  .exp-grid{grid-template-columns:1fr 1fr;}
 }
+
+/* ──────────────────────────────
+   RESPONSIVE — MOBILE 860px
+────────────────────────────── */
 @media(max-width:860px){
   nav .nav-links,nav .nav-hire{display:none;}
   .ham{display:flex;}
   .mob-m{display:flex;}
   .exp-grid{grid-template-columns:1fr;}
-  .container{padding:72px 20px;}
+  .container{padding:64px 18px;}
   .hc-tl,.hc-br{display:none;}
+  .hero-layout{padding:60px 18px;}
+  .hero-right{max-width:100%;}
+  .holo-card{max-width:380px;margin:0 auto;}
+  .hero-desc{font-size:.96rem;}
+  .hero-cta{gap:10px;}
+  .btn-prime,.btn-ghost{padding:12px 22px;font-size:.58rem;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .code-card{max-width:100%;}
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .sk-tabs{flex-wrap:wrap;width:100%;}
+  .sk-tab{flex:1 1 auto;min-width:120px;text-align:center;}
+  .contact-grid{grid-template-columns:1fr;gap:32px;}
+  .sec-h2{font-size:clamp(1.6rem,5vw,2.4rem);}
+  .ec{padding:22px 18px;}
+  .pi-top{padding:18px 16px;}
+  .pi-body{padding:0 16px 18px 16px;}
+  .wa-float{bottom:20px;right:18px;width:46px;height:46px;font-size:20px;}
 }
+
+/* ──────────────────────────────
+   RESPONSIVE — SMALL MOBILE 580px
+────────────────────────────── */
 @media(max-width:580px){
-  .hero-name{font-size:2.6rem;}
+  /* reset zoom-causing transforms on mobile */
+  .ec:hover,.code-card:hover,.form-box:hover{transform:none !important;}
+
+  .hero-name{font-size:clamp(2rem,10vw,3rem);letter-spacing:-.02em;}
+  .hero-role{font-size:.8rem;}
+  .hero-desc{font-size:.9rem;padding-left:14px;}
+
+  .hero-stats{width:100%;border:1px solid var(--bdr2);}
+  .hs{flex:1;padding:10px 8px;}
+  .hs-n{font-size:1.4rem;}
+  .hs-l{font-size:.44rem;letter-spacing:.1em;}
+
+  .hero-right{max-width:100%;}
+  .holo-card{max-width:100%;}
+
   .skills-grid{grid-template-columns:1fr;}
-  .hero-stats{width:100%;}
-  .hs{flex:1;padding:12px 14px;}
+  .sk-box{border-right:none;border-bottom:1px solid var(--bdr);}
+  .sk-box:last-child{border-bottom:none;}
+  .sk-tabs{width:100%;}
+  .sk-tab{padding:9px 10px;font-size:.56rem;}
+
   .fr2{grid-template-columns:1fr;}
   .pi-tags-r{display:none;}
+  .pi-title{font-size:.82rem;}
+  .pi-sub{font-size:.56rem;}
+
+  .info-tbl .ir{grid-template-columns:80px 1fr;}
+  .ik{font-size:.54rem;padding:9px 10px;}
+  .iv{font-size:.66rem;padding:9px 10px;}
+
+  .container{padding:56px 16px;}
+  .sec-h2{font-size:clamp(1.5rem,8vw,2rem);}
+  .sec-sub{font-size:.92rem;margin-bottom:36px;}
+
+  .form-bd{padding:18px;}
+  .fg input,.fg textarea{font-size:.75rem;padding:10px 12px;}
+
+  .ec{padding:20px 16px;}
+  .ec-title{font-size:.82rem;}
+  .ec-desc{font-size:.86rem;}
+
+  .sl{padding:11px 12px;}
+  .sl-val{font-size:.66rem;}
+
+  .nav-i{padding:0 16px;}
+  .mob-m{padding:22px 16px;}
+
+  .foot-i{flex-direction:column;text-align:center;gap:10px;}
+
+  .hero-corner,.hud-corner{display:none;}
+  .hero-hex{opacity:.03;}
+
+  .tick-t span{padding:5px 14px;font-size:.64rem;}
+
+  .scroll-ind{display:none;}
+  .chip{display:none;}
+
+  .btn-prime,.btn-ghost{padding:11px 18px;font-size:.56rem;gap:7px;}
+
+  .status-pill{font-size:.56rem;padding:6px 12px;}
+
+  /* prevent horizontal scroll on very small screens */
+  .hero-bg-word{font-size:clamp(90px,24vw,160px);}
+
+  .wa-float{bottom:16px;right:14px;width:44px;height:44px;font-size:18px;}
 }
 
 /* ── FLOATING WHATSAPP ── */
@@ -827,7 +916,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
           <div class="ir"><div class="ik">degree</div><div class="iv">B.Sc CS (2.1) — IAUE</div></div>
           <div class="ir"><div class="ik">location</div><div class="iv">Nigeria 🇳🇬</div></div>
           <div class="ir"><div class="ik">status</div><div class="iv on">● available_for_work</div></div>
-          <div class="ir"><div class="ik">email</div><div class="iv"><a href="mailto:gilbertsize@gmail.com" style="color:var(--g);">gilbertsize@gmail.com</a></div></div>
+          <div class="ir"><div class="ik">email</div><div class="iv"><a href="/cdn-cgi/l/email-protection#5a3d3336383f282e2933203f1a3d373b333674393537" style="color:var(--g);"><span class="__cf_email__" data-cfemail="9dfaf4f1fff8efe9eef4e7f8ddfaf0fcf4f1b3fef2f0">[email&#160;protected]</span></a></div></div>
           <div class="ir"><div class="ik">hobby</div><div class="iv">🎹 Piano / Keyboard</div></div>
         </div>
         <div class="tags-row">
@@ -1241,7 +1330,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
           </div>
         </div>
         <div class="social-list">
-          <a href="mailto:gilbertsize@gmail.com" class="sl"><div class="sl-ic"><i class="fas fa-envelope"></i></div><div><div class="sl-lbl">email</div><div class="sl-val">gilbertsize@gmail.com</div></div></a>
+          <a href="/cdn-cgi/l/email-protection#f097999c9295828483998a95b0979d91999cde939f9d" class="sl"><div class="sl-ic"><i class="fas fa-envelope"></i></div><div><div class="sl-lbl">email</div><div class="sl-val"><span class="__cf_email__" data-cfemail="a8cfc1c4cacddadcdbc1d2cde8cfc5c9c1c486cbc7c5">[email&#160;protected]</span></div></div></a>
           <a href="https://wa.me/2348032532826" target="_blank" class="sl"><div class="sl-ic"><i class="fab fa-whatsapp"></i></div><div><div class="sl-lbl">whatsapp</div><div class="sl-val">+234 803 253 2826</div></div></a>
           <a href="https://github.com/gilbertsize112" target="_blank" class="sl"><div class="sl-ic"><i class="fab fa-github"></i></div><div><div class="sl-lbl">github</div><div class="sl-val">github.com/gilbertsize112</div></div></a>
           <a href="https://www.linkedin.com/in/favour-gilbert-43421a395/" target="_blank" class="sl"><div class="sl-ic"><i class="fab fa-linkedin"></i></div><div><div class="sl-lbl">linkedin</div><div class="sl-val">favour-gilbert</div></div></a>
@@ -1266,7 +1355,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════
    GFJ.DEV — PREMIUM ANIMATION SUITE
 ═══════════════════════════════════════ */
@@ -1285,6 +1374,14 @@ if (document.readyState === 'complete') {
 }
 
 /* ── CURSOR ── */
+// Disable custom cursor on touch/mobile devices
+if (window.matchMedia('(hover: none)').matches) {
+  document.body.style.cursor = 'auto';
+  const curDot = document.getElementById('cur-dot');
+  const curRing = document.getElementById('cur-ring');
+  if (curDot) curDot.style.display = 'none';
+  if (curRing) curRing.style.display = 'none';
+}
 const dot = document.getElementById('cur-dot');
 const ring = document.getElementById('cur-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1348,6 +1445,7 @@ setInterval(() => {
 }, 45);
 
 /* ── PARTICLES ── */
+if (!window.matchMedia('(max-width:860px)').matches) {
 for (let i = 0; i < 50; i++) {
   const p = document.createElement('div');
   p.style.cssText = `position:fixed;width:${Math.random()>0.7?3:2}px;height:${Math.random()>0.7?3:2}px;background:#00ffe5;border-radius:50%;pointer-events:none;z-index:1;left:${Math.random()*100}%;top:100%;opacity:0;animation:particle-up ${7+Math.random()*10}s linear ${Math.random()*10}s infinite;`;
@@ -1356,6 +1454,7 @@ for (let i = 0; i < 50; i++) {
 const ps = document.createElement('style');
 ps.textContent = `@keyframes particle-up{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:.6;}90%{opacity:.2;}100%{transform:translateY(-100vh) translateX(${(Math.random()-.5)*300}px);opacity:0;}}`;
 document.head.appendChild(ps);
+}
 
 /* ── NAV HAMBURGER ── */
 const ham = document.getElementById('ham'), mobM = document.getElementById('mobM');
@@ -1449,12 +1548,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ── CARD TILT ── */
+const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
 document.querySelectorAll('.ec, .code-card, .form-box').forEach(card => {
   card.addEventListener('mousemove', e => {
+    if (isTouchDevice()) return;
     const r = card.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`;
+    card.style.transform = `perspective(800px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`;
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
@@ -1464,9 +1565,10 @@ const prog = document.getElementById('scroll-prog');
 window.addEventListener('scroll', () => {
   const s = document.documentElement.scrollTop;
   const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  prog.style.width = (s / h * 100) + '%';
+  if (prog) prog.style.width = (s / h * 100) + '%';
 });
 
+console.log('%c GFJ.DEV ', 'background:linear-gradient(135deg,#00ffe5,#00aacc);color:#020408;font-size:14px;font-weight:900;padding:6px 12px;');
 </script>
 </body>
 </html>
